@@ -3,8 +3,12 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
 	mode: "development",
-	entry: { index: "./src/index.js" },
-	plugins: [new htmlWebpackPlugin({ title: "Homepage - Odin Restaurant" })],
+	entry: {
+		index: "./src/index.js",
+		menu: "./src/menu.js",
+		contact: "./src/contact.js",
+	},
+	plugins: [new htmlWebpackPlugin({ title: "Arancione" })],
 	devtool: "inline-source-map",
 	devServer: {
 		contentBase: "./dist",
