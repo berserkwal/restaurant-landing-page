@@ -81,7 +81,7 @@ nav {
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
 	border-radius: 99vh;
 	/* transform: translateX(-50%); */
-	transition: all 0.5s ease, border-radius 0.3s;
+	transition: all 0.25s ease, border-radius 0.3s 0.25s ease-in;
 	overflow: hidden;
 	user-select: none;
 }
@@ -343,11 +343,10 @@ nav.clicked .ham-menu > div:nth-child(2) {
 		top: 100%;
 		left: 0;
 		text-align: center;
-		/* z-index: -1; */
 		border-radius: 0 0 50px 50px;
 		box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.25);
 		transform: scaleY(0);
-		transition: all 0.25s 0.25s ease-in;
+		transition: all 0.25s ease-in;
 		transform-origin: top;
 	}
 
@@ -358,6 +357,7 @@ nav.clicked .ham-menu > div:nth-child(2) {
 	}
 
 	nav.clicked ul {
+		transition: all 0.25s 0.25s ease-in;
 		transform: scaleY(1);
 	}
 
