@@ -72,7 +72,6 @@ nav {
 	top: 2rem;
 	left: 10%;
 	background-color: var(--black-transparent);
-	--transparent-border: var(--white-transparent);
 	backdrop-filter: blur(20px);
 	padding: 0rem 2rem;
 	display: flex;
@@ -81,6 +80,7 @@ nav {
 	width: 80%;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
 	border-radius: 99vh;
+	/* transform: translateX(-50%); */
 	transition: all 0.5s ease, border-radius 0.3s;
 	overflow: hidden;
 	user-select: none;
@@ -171,7 +171,7 @@ footer a:hover {
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
-	/* padding: 0 4rem; */
+	/* padding: 0 1rem; */
 	font-family: "Nanum Gothic", sans-serif;
 	color: var(--white);
 	width: 100%;
@@ -195,7 +195,7 @@ footer a:hover {
 .content-image {
 	background-color: var(--black);
 	background-image: var(--url);
-	width: 500px;
+	width: 450px;
 	height: 300px;
 	margin: 2rem 0;
 	background-position: center;
@@ -275,4 +275,110 @@ footer a:hover {
 	list-style: none;
 	margin-bottom: 0.5rem;
 	text-align: right;
+}
+
+nav .ham-menu {
+	height: 20px;
+	width: 30px;
+	cursor: pointer;
+	display: none;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+nav .ham-menu div {
+	background-color: white;
+	height: 2px;
+	width: 100%;
+	border-radius: 99vh;
+	transform-origin: left;
+	transition: all 0.2s ease-in-out;
+}
+
+nav.clicked .ham-menu > div:first-child {
+	transform: rotate(37.5deg);
+}
+nav.clicked .ham-menu > div:last-child {
+	transform: rotate(-37.5deg);
+}
+
+nav.clicked .ham-menu > div:nth-child(2) {
+	opacity: 0;
+}
+
+@media only screen and (max-width: 900px) {
+	nav .ham-menu {
+		display: flex;
+	}
+
+	.header-image h1 {
+		font-size: 6rem;
+	}
+
+	nav {
+		top: 1rem;
+		left: 5%;
+		width: 90%;
+		overflow: visible;
+		transition: all 0.25s 0.25s ease-in;
+	}
+
+	nav.clicked {
+		border-radius: 50px 50px 0 0;
+		box-shadow: none;
+		/* z-index: 1; */
+		transition: all 0.25s ease-in;
+	}
+	nav.clicked.fullspread {
+		border-radius: 0;
+	}
+
+	nav ul {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		background-color: var(--black);
+		color: var(--white);
+		position: absolute;
+		width: 100%;
+		top: 100%;
+		left: 0;
+		text-align: center;
+		/* z-index: -1; */
+		border-radius: 0 0 50px 50px;
+		box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.25);
+		transform: scaleY(0);
+		transition: all 0.25s 0.25s ease-in;
+		transform-origin: top;
+	}
+
+	nav ul li {
+		width: 100%;
+		align-items: stretch;
+		text-align: center;
+	}
+
+	nav.clicked ul {
+		transform: scaleY(1);
+	}
+
+	nav.fullspread ul {
+		border-radius: 0;
+	}
+
+	nav .underline {
+		display: none;
+	}
+
+	.menu-section {
+		display: grid;
+		grid-template: repeat(3, auto) / auto;
+		gap: 2rem;
+	}
+
+	.text-contacts {
+		display: grid;
+		grid-template: 1fr 1fr/ 1fr;
+		gap: 2rem;
+	}
 }

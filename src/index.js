@@ -46,6 +46,9 @@ const universalSkeleton = (function () {
 	const headerMainText = document.createElement("h1");
 	const footer = document.createElement("footer");
 	const footerLink = document.createElement("a");
+	const hamburgerMenu = document.createElement("div");
+
+	hamburgerMenu.innerHTML = `<div></div><div></div><div></div>`;
 
 	headerMainText.innerText = "arancione";
 	homeNav.innerText = "Home";
@@ -60,12 +63,13 @@ const universalSkeleton = (function () {
 	header.classList.add("header-image");
 	underline.classList.add("underline");
 	main.classList.add("main-section");
+	hamburgerMenu.classList.add("ham-menu");
 
 	footerLink.setAttribute("href", "https://berserkwal.github.io");
 
 	navLogo.append(logoText);
 	navElements.append(homeNav, menuNav, aboutNav);
-	navigation.append(navLogo, underline, navElements);
+	navigation.append(navLogo, underline, hamburgerMenu, navElements);
 	header.append(headerMainText);
 	footer.append(footerLink);
 
@@ -75,6 +79,15 @@ const universalSkeleton = (function () {
 		const everything = main.querySelector(".content");
 		everything.remove();
 	}
+
+	hamburgerMenu.addEventListener("click", () => {
+		console.log("open sesame");
+		if (!navigation.classList.contains("clicked")) {
+			navigation.classList.add("clicked");
+		} else {
+			navigation.classList.remove("clicked");
+		}
+	});
 
 	const options = { root: null, threshold: 0, rootMargin: "-200px" };
 	const observer = new IntersectionObserver(function (entries) {
