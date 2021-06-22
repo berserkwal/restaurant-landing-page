@@ -81,7 +81,6 @@ const universalSkeleton = (function () {
 	}
 
 	hamburgerMenu.addEventListener("click", () => {
-		console.log("open sesame");
 		if (!navigation.classList.contains("clicked")) {
 			navigation.classList.add("clicked");
 		} else {
@@ -89,12 +88,14 @@ const universalSkeleton = (function () {
 		}
 	});
 
-	const options = { root: null, threshold: 0, rootMargin: "-200px" };
+	const options = { root: null, threshold: 0.5, rootMargin: "0px" };
 	const observer = new IntersectionObserver(function (entries) {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
+				console.log("out");
 				navigation.classList.remove("fullspread");
 			} else {
+				console.log("in");
 				navigation.classList.add("fullspread");
 			}
 		});
