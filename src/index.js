@@ -47,6 +47,7 @@ const universalSkeleton = (function () {
 	const footer = document.createElement("footer");
 	const footerLink = document.createElement("a");
 	const hamburgerMenu = document.createElement("div");
+	const logoHam = document.createElement("div");
 
 	hamburgerMenu.innerHTML = `<div></div><div></div><div></div>`;
 
@@ -64,12 +65,15 @@ const universalSkeleton = (function () {
 	underline.classList.add("underline");
 	main.classList.add("main-section");
 	hamburgerMenu.classList.add("ham-menu");
+	logoHam.classList.add("logo-n-ham")
+
 
 	footerLink.setAttribute("href", "https://berserkwal.github.io");
 
 	navLogo.append(logoText);
 	navElements.append(homeNav, menuNav, aboutNav);
-	navigation.append(navLogo, underline, hamburgerMenu, navElements);
+	logoHam.append(navLogo, hamburgerMenu)
+	navigation.append(logoHam, underline, navElements);
 	header.append(headerMainText);
 	footer.append(footerLink);
 
@@ -92,10 +96,8 @@ const universalSkeleton = (function () {
 	const observer = new IntersectionObserver(function (entries) {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
-				console.log("out");
 				navigation.classList.remove("fullspread");
 			} else {
-				console.log("in");
 				navigation.classList.add("fullspread");
 			}
 		});

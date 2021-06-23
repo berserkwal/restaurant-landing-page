@@ -79,11 +79,12 @@ nav {
 	align-items: center;
 	width: 80%;
 	box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
-	border-radius: 99vh;
+	border-radius: 50px;
 	/* transform: translateX(-50%); */
-	transition: all 0.25s ease, border-radius 0.3s 0.25s ease-in;
+	transition: all 0.25s ease;
 	overflow: hidden;
 	user-select: none;
+	/* border: 1px solid #ffffff23; */
 }
 
 nav ul {
@@ -101,6 +102,7 @@ nav ul li {
 }
 
 .fullspread {
+	border: none;
 	background-color: var(--black);
 	width: 100%;
 	top: 0;
@@ -123,6 +125,13 @@ nav ul li {
 }
 .underline.contact {
 	right: calc(0rem + 2rem);
+}
+
+.logo-n-ham{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
@@ -306,6 +315,7 @@ nav.clicked .ham-menu > div:nth-child(2) {
 }
 
 @media only screen and (max-width: 900px) {
+	
 	nav .ham-menu {
 		display: flex;
 	}
@@ -315,40 +325,35 @@ nav.clicked .ham-menu > div:nth-child(2) {
 	}
 
 	nav {
+		border-radius: 50px;
+		flex-direction: column;
 		top: 1rem;
 		left: 5%;
 		width: 90%;
+		height: 4rem;
 		overflow: visible;
-		transition: all 0.25s 0.25s ease-in;
+		transition: all 0.25s ease-in;
+		overflow: hidden;
 	}
 
 	nav.clicked {
-		border-radius: 50px 50px 0 0;
 		box-shadow: none;
-		/* z-index: 1; */
-		transition: all 0.25s ease-in;
-	}
-	nav.clicked.fullspread {
-		border-radius: 0;
+		height: 18.625rem;
+		transition: all 0.5s ease-in;
 	}
 
 	nav ul {
-		display: flex;
 		flex-direction: column;
 		align-items: stretch;
-		background-color: var(--black);
 		color: var(--white);
-		position: absolute;
+		height: max-content;
 		width: 100%;
 		top: 100%;
 		left: 0;
 		text-align: center;
-		border-radius: 0 0 50px 50px;
-		box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.25);
-		transform: scaleY(0);
-		transition: all 0.25s ease-in;
 		transform-origin: top;
 	}
+	
 
 	nav ul li {
 		width: 100%;
@@ -357,13 +362,11 @@ nav.clicked .ham-menu > div:nth-child(2) {
 	}
 
 	nav.clicked ul {
-		transition: all 0.25s 0.25s ease-in;
+		display: flex;
+		transition: all 0.3s ease-in;
 		transform: scaleY(1);
 	}
-
-	nav.fullspread ul {
-		border-radius: 0;
-	}
+	
 
 	nav .underline {
 		display: none;
