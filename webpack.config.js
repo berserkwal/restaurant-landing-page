@@ -5,8 +5,8 @@ module.exports = {
 	mode: "development",
 	entry: {
 		index: "./src/index.js",
-		menu: "./src/menu.js",
-		contact: "./src/contact.js",
+		// menu: "./src/menu.js",
+		// contact: "./src/contact.js",
 	},
 	plugins: [new htmlWebpackPlugin({ title: "Arancione" })],
 	devtool: "inline-source-map",
